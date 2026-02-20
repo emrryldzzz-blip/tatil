@@ -43,8 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $stmt = $pdo->prepare('UPDATE posts SET category_id = ?, title = ?, slug = ?, content = ?, featured_image = ?, is_published = ? WHERE id = ?');
                     $stmt->execute([$categoryId ?: null, $title, $slug, $content, $newImage, $isPublished, $id]);
 
-                    if ($oldImage && str_starts_with($oldImage, '/uploads/')) {
-                        @unlink(__DIR__ . '/..' . $oldImage);
+                    if ($oldImage) {
+                        @unlink(__DIR__ . '/../' . ltrim($oldImage, '/'));
                     }
                 }
 
@@ -61,8 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $del = $pdo->prepare('DELETE FROM posts WHERE id = ?');
             $del->execute([$id]);
 
-            if ($image && str_starts_with($image, '/uploads/')) {
-                @unlink(__DIR__ . '/..' . $image);
+            if ($image) {
+                @unlink(__DIR__ . '/../' . ltrim($image, '/'));
             }
 
             $success = 'Yazı silindi.';

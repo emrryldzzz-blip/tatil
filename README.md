@@ -14,6 +14,8 @@ mysql -u root -p < database.sql
 ```
 
 2. `config.php` dosyasını (veya environment değişkenlerini) kendi MySQL bilgilerinize göre düzenleyin.
+   - WAMP'ta proje `www/site/tatil` altındaysa `base_url` değerini `/site/tatil` olarak bırakın (varsayılan).
+   - Farklı klasördeyse `base_url` değerini kendi yolunuza göre güncelleyin (ör: `/tatil`).
 
 3. Projeyi çalıştırın:
 ```bash

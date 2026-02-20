@@ -28,10 +28,21 @@ function e(string $value): string
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
 
+function base_url(): string
+{
+    return rtrim((string) config('app', 'base_url'), '/');
+}
+
+function url(string $path = ''): string
+{
+    $normalizedPath = '/' . ltrim($path, '/');
+
+    return base_url() . ($path === '' ? '' : $normalizedPath);
+}
+
 function redirect(string $path): void
 {
-    $baseUrl = rtrim((string) config('app', 'base_url'), '/');
-    header('Location: ' . $baseUrl . $path);
+    header('Location: ' . url($path));
     exit;
 }
 
@@ -79,5 +90,5 @@ function upload_featured_image(array $file): ?string
         throw new RuntimeException('Görsel kaydedilemedi.');
     }
 
-    return '/uploads/' . $filename;
+    return 'uploads/' . $filename;
 }

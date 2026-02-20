@@ -29,10 +29,10 @@ require_once __DIR__ . '/../includes/helpers.php';
         <h1>Mini CMS Yönetim</h1>
         <?php if (is_admin_logged_in()): ?>
         <div class="nav">
-            <a href="/admin/index.php">Panel</a>
-            <a href="/admin/categories.php">Kategoriler</a>
-            <a href="/admin/posts.php">Yazılar</a>
-            <a href="/admin/logout.php">Çıkış</a>
+            <a href="<?= e(url('admin/index.php')) ?>">Panel</a>
+            <a href="<?= e(url('admin/categories.php')) ?>">Kategoriler</a>
+            <a href="<?= e(url('admin/posts.php')) ?>">Yazılar</a>
+            <a href="<?= e(url('admin/logout.php')) ?>">Çıkış</a>
         </div>
         <?php endif; ?>
     </div>

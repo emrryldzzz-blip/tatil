@@ -26,9 +26,9 @@ if (!$post) {
     </style>
 </head>
 <body>
-    <p><a href="/">← Anasayfa</a></p>
+    <p><a href="<?= e(url()) ?>">← Anasayfa</a></p>
     <?php if (!empty($post['featured_image'])): ?>
-        <img class="hero" src="<?= e($post['featured_image']) ?>" alt="<?= e($post['title']) ?>">
+        <img class="hero" src="<?= e(url($post['featured_image'])) ?>" alt="<?= e($post['title']) ?>">
     <?php endif; ?>
     <h1><?= e($post['title']) ?></h1>
     <small><?= e($post['category_name'] ?? 'Genel') ?> • <?= e(date('d.m.Y', strtotime($post['created_at']))) ?></small>

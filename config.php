@@ -9,6 +9,6 @@ return [
         'charset' => 'utf8mb4',
     ],
     'app' => [
-        'base_url' => getenv('APP_BASE_URL') ?: '',
+        'base_url' => getenv('APP_BASE_URL') ?: '/site/tatil',
     ],
 ];

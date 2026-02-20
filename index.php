@@ -30,7 +30,7 @@ $posts = db()->query('SELECT p.id, p.title, p.slug, p.content, p.featured_image,
             <article class="card">
                 <div class="cover">
                     <?php if (!empty($post['featured_image'])): ?>
-                        <img src="<?= e($post['featured_image']) ?>" alt="<?= e($post['title']) ?>">
+                        <img src="<?= e(url($post['featured_image'])) ?>" alt="<?= e($post['title']) ?>">
                     <?php else: ?>
                         Görsel Yok
                     <?php endif; ?>
@@ -39,7 +39,7 @@ $posts = db()->query('SELECT p.id, p.title, p.slug, p.content, p.featured_image,
                     <small><?= e($post['category_name'] ?? 'Genel') ?> • <?= e(date('d.m.Y', strtotime($post['created_at']))) ?></small>
                     <h3><?= e($post['title']) ?></h3>
                     <p><?= e(mb_strimwidth(strip_tags($post['content']), 0, 110, '...')) ?></p>
-                    <a href="/post.php?slug=<?= urlencode($post['slug']) ?>">Devamını oku →</a>
+                    <a href="<?= e(url('post.php')) ?>?slug=<?= urlencode($post['slug']) ?>">Devamını oku →</a>
                 </div>
             </article>
         <?php endforeach; ?>
