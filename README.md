@@ -34,3 +34,10 @@ Varsayılan admin:
 - `admin/`: Tüm yönetim ekranları
 - `includes/`: DB bağlantısı + yardımcı fonksiyonlar
 - `uploads/`: Öne çıkan görsellerin saklandığı klasör
+
+
+## Sık Karşılaşılan MySQL Hatası
+
+Eğer kurulumda `#1071 - Specified key was too long; max key length is 1000 bytes` hatasını alırsanız, bu genelde eski MySQL/MariaDB sürümlerinde `utf8mb4 + UNIQUE VARCHAR(255)` kombinasyonundan kaynaklanır.
+
+Bu repo içinde `posts.slug` alanı bu nedenle `VARCHAR(191)` olarak ayarlanmıştır ve hata çözülmüştür.
